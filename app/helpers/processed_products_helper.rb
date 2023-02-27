@@ -1,0 +1,2 @@
+module ProcessedProductsHelper
+end

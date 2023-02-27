@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @cut %>
+
+<div>
+  <%= link_to "Edit this cut", edit_cut_path(@cut) %> |
+  <%= link_to "Back to cuts", cuts_path %>
+
+  <%= button_to "Destroy this cut", @cut, method: :delete %>
+</div>

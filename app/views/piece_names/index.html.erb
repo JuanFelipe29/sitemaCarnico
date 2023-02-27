@@ -1,0 +1,57 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="h3 mb-2 text-gray-800">Nombre de piezas</h1>
+<br />
+<%= link_to "Agregar Pieza", "#modal-pm", class: "btn btn-primary", data: { toggle: "modal" } %>
+<br /><br />
+<div id="piece_names">
+
+  <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                    <thead>
+                       <tr>
+                           <th>Nombre de Pieza</th>
+                           <th>Familia</th>
+                           <th></th>
+                       </tr>
+                    </thead>
+                    <tbody>
+                        <% @piece_names.each do |piece_name| %>
+                             <tr id="Nombre<%= piece_name.id %>" >
+                                <td><%= piece_name.name %></td>
+                                <td><%= piece_name.family_id %></td>
+                                <td>
+                                  <%= link_to "Show this piece name", piece_name, class: "btn btn-primary mb-3" %>
+                                </td>
+                             </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+<div class="modal fade" id="modal-pm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Ingreso de Familia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form', piece_name: PieceName.new %>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>

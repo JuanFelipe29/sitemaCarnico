@@ -1,0 +1,27 @@
+<%= form_with(model: processed_product) do |form| %>
+  <% if processed_product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(processed_product.errors.count, "error") %> prohibited this processed_product from being saved:</h2>
+
+      <ul>
+        <% processed_product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name_of_products_id, style: "display: block" %>
+    <%= form.text_field :name_of_products_id %>
+  </div>
+
+  <div>
+    <%= form.label :product_type_id, style: "display: block" %>
+    <%= form.text_field :product_type_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

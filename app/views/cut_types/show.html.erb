@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @cut_type %>
+
+<div>
+  <%= link_to "Edit this cut type", edit_cut_type_path(@cut_type) %> |
+  <%= link_to "Back to cut types", cut_types_path %>
+
+  <%= button_to "Destroy this cut type", @cut_type, method: :delete %>
+</div>

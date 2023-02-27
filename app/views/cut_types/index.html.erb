@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Cut types</h1>
+
+<div id="cut_types">
+  <% @cut_types.each do |cut_type| %>
+    <%= render cut_type %>
+    <p>
+      <%= link_to "Show this cut type", cut_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New cut type", new_cut_type_path %>

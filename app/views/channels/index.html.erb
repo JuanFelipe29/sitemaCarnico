@@ -1,0 +1,80 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="h3 mb-2 text-gray-800">Ingreso de Canales/Piezas</h1>
+<br />
+<%= link_to "Agregar canal", "#modal-channel", class: "btn btn-primary", data: { toggle: "modal" } %>
+<br /><br />
+
+
+<div id="channels">
+  <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="" width="100%" cellspacing="0">
+                    <thead>
+                       <tr>
+                           <th>Familia</th>
+                           <th>Proveedor</th>
+                           <th>Fecha de Nacido</th>
+                           <th>Fecha de Matanza</th>
+                           <th>Crotal</th>
+                           <th>Lote</th>
+                           <th>Peso sin Oreo</th>
+                           <th>Peso Oreado</th>
+                           <th>Peso</th>
+                           <th>Temperatura</th>
+                           <th>Costo</th>
+                           <th></th>
+
+                       </tr>
+                    </thead>
+                    <tbody>
+                        <% @channels.each do |channel| %>
+                             <tr id="Channel_<%= channel.id %>" >
+                                <td><%= channel.family_id %></td>
+                                <td><%= channel.supplier_id %></td>
+                                <td><%= channel.born_date %></td>
+                                <td><%= channel.slaughter_date %></td>
+                                <td><%= channel.crotal %></td>
+                                <td><%= channel.lot %></td>
+                                <td><%= channel.weight_without_bones %></td>
+                                <td><%= channel.weight_bones %></td>
+                                <td><%= channel.weight_bones %></td>
+                                <td><%= channel.temperature %></td>
+                                <td><%= channel.total_value %></td>
+                                <td>
+                                   <%= link_to 'Enviar a Despiece', new_channel_piece_path(channel_id: channel.id), class: 'btn btn-primary' %>
+                                </td>
+                             </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Botón para abrir el modal -->
+
+
+<!-- Div que contiene el modal -->
+<div class="modal fade" id="modal-channel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Ingreso de Canal/Pieza</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form', channel: Channel.new %>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>

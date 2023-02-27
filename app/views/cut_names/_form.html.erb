@@ -1,0 +1,28 @@
+<%= form_with(model: cut_name, class: "form") do |form| %>
+  <% if cut_name.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(cut_name.errors.count, "error") %> prohibited this cut_name from being saved:</h2>
+
+      <ul>
+        <% cut_name.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, "Nombre del corte" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :piece_id, "pieza" %>
+    <%= form.collection_select :piece_name_id, PieceName.order(:name), :id, :name, { prompt: 'Seleccione la Pieza'}, { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Guardar", class: "btn btn-primary" %>
+  </div>
+<% end %>
+

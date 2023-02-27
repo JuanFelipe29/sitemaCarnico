@@ -1,0 +1,52 @@
+<%= form_with(model: cut) do |form| %>
+  <% if cut.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cut.errors.count, "error") %> prohibited this cut from being saved:</h2>
+
+      <ul>
+        <% cut.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :piece_id, style: "display: block" %>
+    <%= form.text_field :piece_id %>
+  </div>
+
+  <div>
+    <%= form.label :cut_name_id, style: "display: block" %>
+    <%= form.text_field :cut_name_id %>
+  </div>
+
+  <div>
+    <%= form.label :start_date_maturation, style: "display: block" %>
+    <%= form.date_field :start_date_maturation %>
+  </div>
+
+  <div>
+    <%= form.label :end_date_maturation, style: "display: block" %>
+    <%= form.date_field :end_date_maturation %>
+  </div>
+
+  <div>
+    <%= form.label :maturing, style: "display: block" %>
+    <%= form.check_box :maturing %>
+  </div>
+
+  <div>
+    <%= form.label :available, style: "display: block" %>
+    <%= form.check_box :available %>
+  </div>
+
+  <div>
+    <%= form.label :cut_type_id, style: "display: block" %>
+    <%= form.text_field :cut_type_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

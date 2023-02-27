@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @processed_product %>
+
+<div>
+  <%= link_to "Edit this processed product", edit_processed_product_path(@processed_product) %> |
+  <%= link_to "Back to processed products", processed_products_path %>
+
+  <%= button_to "Destroy this processed product", @processed_product, method: :delete %>
+</div>

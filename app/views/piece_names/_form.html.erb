@@ -1,0 +1,27 @@
+<%= form_with(model: piece_name, class: 'form') do |form| %>
+  <% if piece_name.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(piece_name.errors.count, "error") %> prohibited this piece_name from being saved:</h2>
+
+      <ul>
+        <% piece_name.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, "Nombre de la pieza" , class: "control-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :family_id, "Familia" , class: "control-label" %>
+    <%= form.collection_select :family_id, Family.order(:name), :id, :name, { prompt: 'Seleccione la familia'}, { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Guardar", class: "btn btn-primary" %>
+  </div>
+<% end %>
