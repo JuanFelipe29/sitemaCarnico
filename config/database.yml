@@ -20,10 +20,12 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: 'root2'
+  #username: postgres
+  password: 
   host: localhost
   port: 5432
+  encoding: unicode
+
 
 development:
   <<: *default
@@ -87,5 +89,5 @@ test:
 production:
   <<: *default
   database: erpSistema_production
-  username: erpSistema
+  username: postgres
   password: <%= ENV["ERPSISTEMA_DATABASE_PASSWORD"] %>
